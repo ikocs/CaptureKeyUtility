@@ -1,0 +1,23 @@
+keyboard_shortcuts:
+  - duration: 400
+    action_string: "echo "pressed Left Ctrl + Left Shift + F1""
+    keys:
+      - "Left Ctrl"
+      - "Left Shift"
+      - "F1"
+
+  - duration: 400
+    action_string: "echo "pressed Left Ctrl + Left Shift + F2""
+    keys:
+      - "Left Ctrl"
+      - "Left Shift"
+      - "F2"
+
+  - duration: 400
+    action_string: "echo "pressed Left Ctrl + Left Shift + F3""
+    keys:
+      - "Left Ctrl"
+      - "Left Shift"
+      - "F3"
+      
+#Esc, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, -, +, Backspace, Tab, q, Q, w, W, e, E, r, R, t, T, y, Y, u, U, i, I, o, O, p, P, [, ], Enter, Left Ctrl, a, A, s, S, d, D, f, F, g, G, h, H, j, J, k, K, l, L, ;, ', `, Left Shift, \\, z, Z, x, X, c, C, v, V, b, B, n, N, m, M, ,, ., /, Right Shift, *, Left Alt, Space, Caps Lock, F1, F2, F3, F4, F5, F6, F7, F8#, F9, F10, Num Lock, Scroll Lock, Numpad 7, Numpad 8, Numpad 9, Numpad -, Numpad 4, Numpad 5, Numpad 6, Numpad +, Numpad 1, Numpad 2, Numpad 3, Numpad 0, Numpad ., F11, F12, Numpad Enter, Right Ctrl, Numpad /, Print Screen, Right Alt, Home, Arrow Up, Page Up, Arrow Left, Arrow Right, End, Arrow Down, Page Down, Insert, Delete, Pause/Break, #Left Win, Left Function Key, Right Win, Right Function Key, Compose
