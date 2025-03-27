@@ -13,7 +13,7 @@
 #include <filesystem>
 
 
-//Карта имён клавиш и их кодов в библиотеке libevdev
+//РљР°СЂС‚Р° РёРјС‘РЅ РєР»Р°РІРёС€ Рё РёС… РєРѕРґРѕРІ РІ Р±РёР±Р»РёРѕС‚РµРєРµ libevdev
 std::map<std::string, int> stringsAndKeyCodesMap{   {"Esc", KEY_ESC},
                                                     {"1", KEY_1},
                                                     {"2", KEY_2},
@@ -149,7 +149,7 @@ std::map<std::string, int> stringsAndKeyCodesMap{   {"Esc", KEY_ESC},
                                                 };
 
 
-//Карта имён клавиш и их кодов в библиотеке libevdev
+//РљР°СЂС‚Р° РёРјС‘РЅ РєР»Р°РІРёС€ Рё РёС… РєРѕРґРѕРІ РІ Р±РёР±Р»РёРѕС‚РµРєРµ libevdev
 std::map<int, std::string> keyCodesAndStringsMap{   {KEY_ESC, "Esc"}, 
                                                     {KEY_1, "1"}, 
                                                     {KEY_2, "2"}, 
@@ -290,19 +290,19 @@ class KeyHandler;
 class Key
 {
 public:
-    //Кнопка была нажата
+    //РљРЅРѕРїРєР° Р±С‹Р»Р° РЅР°Р¶Р°С‚Р°
     void keyWasPressed();
 
-    //Кнопка была отжата
+    //РљРЅРѕРїРєР° Р±С‹Р»Р° РѕС‚Р¶Р°С‚Р°
     void keyWasReleased();
 
-    //Функция добавления подписчика на события кнопки
+    //Р¤СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ РїРѕРґРїРёСЃС‡РёРєР° РЅР° СЃРѕР±С‹С‚РёСЏ РєРЅРѕРїРєРё
     bool addSubscribe(KeyHandler* inputKeyHandler);
 
-    //Функция удаления подписчика подписанного на события кнопки
+    //Р¤СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ РїРѕРґРїРёСЃС‡РёРєР° РїРѕРґРїРёСЃР°РЅРЅРѕРіРѕ РЅР° СЃРѕР±С‹С‚РёСЏ РєРЅРѕРїРєРё
     bool deleteSubscribe(KeyHandler* inputKeyHandler);
 
-    //Функция установки кода клавиши
+    //Р¤СѓРЅРєС†РёСЏ СѓСЃС‚Р°РЅРѕРІРєРё РєРѕРґР° РєР»Р°РІРёС€Рё
     void setKeyCode(int inputKeyCode);
     
 
@@ -334,21 +334,21 @@ public:
 
 
 private:
-    int _durationMs = 0;                    //Длительность ожидания нажатия клавиш в миллисекундах
+    int _durationMs = 0;                    //Р”Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ РѕР¶РёРґР°РЅРёСЏ РЅР°Р¶Р°С‚РёСЏ РєР»Р°РІРёС€ РІ РјРёР»Р»РёСЃРµРєСѓРЅРґР°С…
 
-    std::string _actionString = "nothing";  //Команда выполняемая при активации
+    std::string _actionString = "nothing";  //РљРѕРјР°РЅРґР° РІС‹РїРѕР»РЅСЏРµРјР°СЏ РїСЂРё Р°РєС‚РёРІР°С†РёРё
 
-    int _counterKeyPressed = 0;             //Счётчик нажатых клавиш
+    int _counterKeyPressed = 0;             //РЎС‡С‘С‚С‡РёРє РЅР°Р¶Р°С‚С‹С… РєР»Р°РІРёС€
 
-    std::chrono::time_point<std::chrono::high_resolution_clock> _startTime; //Время нажатия первой клавиши
+    std::chrono::time_point<std::chrono::high_resolution_clock> _startTime; //Р’СЂРµРјСЏ РЅР°Р¶Р°С‚РёСЏ РїРµСЂРІРѕР№ РєР»Р°РІРёС€Рё
 
-    std::unordered_set<int> _keyCodeSet;    //Множество клавиш
+    std::unordered_set<int> _keyCodeSet;    //РњРЅРѕР¶РµСЃС‚РІРѕ РєР»Р°РІРёС€
 
-    std::vector<Key>* _keyVector;           //Вектор клавиш
+    std::vector<Key>* _keyVector;           //Р’РµРєС‚РѕСЂ РєР»Р°РІРёС€
 };
 
 
-//Кнопка была нажата
+//РљРЅРѕРїРєР° Р±С‹Р»Р° РЅР°Р¶Р°С‚Р°
 void Key::keyWasPressed()
 {
     if(!_stateKey)
@@ -358,13 +358,13 @@ void Key::keyWasPressed()
             it->keyWasPressed();
         }
 
-        //Запоминаем что кнопка нажата
+        //Р—Р°РїРѕРјРёРЅР°РµРј С‡С‚Рѕ РєРЅРѕРїРєР° РЅР°Р¶Р°С‚Р°
         _stateKey = true;
     }
 }
 
 
-//Кнопка была отжата
+//РљРЅРѕРїРєР° Р±С‹Р»Р° РѕС‚Р¶Р°С‚Р°
 void Key::keyWasReleased()
 {
     if(_stateKey)
@@ -374,68 +374,68 @@ void Key::keyWasReleased()
             it->keyWasReleased();
         }
 
-        //Запоминаем что кнопка отжата
+        //Р—Р°РїРѕРјРёРЅР°РµРј С‡С‚Рѕ РєРЅРѕРїРєР° РѕС‚Р¶Р°С‚Р°
         _stateKey = false;
     }
 }
 
 
-//Функция добавления подписчика на события кнопки
+//Р¤СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ РїРѕРґРїРёСЃС‡РёРєР° РЅР° СЃРѕР±С‹С‚РёСЏ РєРЅРѕРїРєРё
 bool Key::addSubscribe(KeyHandler* inputKeyHandler)
 {
-    //Ищем такого подписчика
+    //РС‰РµРј С‚Р°РєРѕРіРѕ РїРѕРґРїРёСЃС‡РёРєР°
     std::unordered_map<KeyHandler*, std::list<KeyHandler*>::iterator>::iterator findIterator = _keyHandlerHash.find(inputKeyHandler);
 
-    //Если не нашли, то добавляем подписчика
+    //Р•СЃР»Рё РЅРµ РЅР°С€Р»Рё, С‚Рѕ РґРѕР±Р°РІР»СЏРµРј РїРѕРґРїРёСЃС‡РёРєР°
     if(findIterator == _keyHandlerHash.end())
     {  
-        //Добавляем в список KeyHandler
+        //Р”РѕР±Р°РІР»СЏРµРј РІ СЃРїРёСЃРѕРє KeyHandler
         std::list<KeyHandler*>::iterator insertIterator = _keyHandlerList.insert(_keyHandlerList.end(), inputKeyHandler);
 
-        //Добавляем в хеш KeyHandler
+        //Р”РѕР±Р°РІР»СЏРµРј РІ С…РµС€ KeyHandler
         _keyHandlerHash.insert({inputKeyHandler, insertIterator});
 
-        //Успешно добавили подписчика
-        //Возвращаем true
+        //РЈСЃРїРµС€РЅРѕ РґРѕР±Р°РІРёР»Рё РїРѕРґРїРёСЃС‡РёРєР°
+        //Р’РѕР·РІСЂР°С‰Р°РµРј true
         return true;
     }
     else
     {
-        //Такой подписчик уже есть, добавления не произошло
-        //Возвращаем false
+        //РўР°РєРѕР№ РїРѕРґРїРёСЃС‡РёРє СѓР¶Рµ РµСЃС‚СЊ, РґРѕР±Р°РІР»РµРЅРёСЏ РЅРµ РїСЂРѕРёР·РѕС€Р»Рѕ
+        //Р’РѕР·РІСЂР°С‰Р°РµРј false
         return false;
     }
 }
 
 
-//Функция удаления подписчика подписанного на события кнопки
+//Р¤СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ РїРѕРґРїРёСЃС‡РёРєР° РїРѕРґРїРёСЃР°РЅРЅРѕРіРѕ РЅР° СЃРѕР±С‹С‚РёСЏ РєРЅРѕРїРєРё
 bool Key::deleteSubscribe(KeyHandler* inputKeyHandler)
 {
-    //Ищем такого подписчика
+    //РС‰РµРј С‚Р°РєРѕРіРѕ РїРѕРґРїРёСЃС‡РёРєР°
     std::unordered_map<KeyHandler*, std::list<KeyHandler*>::iterator>::iterator findIterator = _keyHandlerHash.find(inputKeyHandler);
 
-    //Если нашли, то удаляем подписчика
+    //Р•СЃР»Рё РЅР°С€Р»Рё, С‚Рѕ СѓРґР°Р»СЏРµРј РїРѕРґРїРёСЃС‡РёРєР°
     if(findIterator != _keyHandlerHash.end())
     {  
-        //Получаем итератор списка
+        //РџРѕР»СѓС‡Р°РµРј РёС‚РµСЂР°С‚РѕСЂ СЃРїРёСЃРєР°
         std::list<KeyHandler*>::iterator listIterator = findIterator->second;
 
-        //Удаляем из списка итератор
+        //РЈРґР°Р»СЏРµРј РёР· СЃРїРёСЃРєР° РёС‚РµСЂР°С‚РѕСЂ
         _keyHandlerList.erase(listIterator);
 
-        //Удаляем из хеша итератор
+        //РЈРґР°Р»СЏРµРј РёР· С…РµС€Р° РёС‚РµСЂР°С‚РѕСЂ
         _keyHandlerHash.erase(findIterator);
 
         //inputKeyHandler
 
-        //Успешно удалили подписчика
-        //Возвращаем true
+        //РЈСЃРїРµС€РЅРѕ СѓРґР°Р»РёР»Рё РїРѕРґРїРёСЃС‡РёРєР°
+        //Р’РѕР·РІСЂР°С‰Р°РµРј true
         return true;
     }
     else
     {
-        //Такой подписчик нет, удаления не произошло
-        //Возвращаем false
+        //РўР°РєРѕР№ РїРѕРґРїРёСЃС‡РёРє РЅРµС‚, СѓРґР°Р»РµРЅРёСЏ РЅРµ РїСЂРѕРёР·РѕС€Р»Рѕ
+        //Р’РѕР·РІСЂР°С‰Р°РµРј false
         return false;
     }
 }
@@ -453,100 +453,100 @@ KeyHandler::KeyHandler(std::vector<Key>* inputKeyVector)
 
 bool KeyHandler::addKey(int inputKeyCode)
 {
-    //Ищем клавишу с inputKeyCode
+    //РС‰РµРј РєР»Р°РІРёС€Сѓ СЃ inputKeyCode
     std::map<int, std::string>::iterator findIterator1 = keyCodesAndStringsMap.find(inputKeyCode);
 
-    //Если такой клавиши нет
+    //Р•СЃР»Рё С‚Р°РєРѕР№ РєР»Р°РІРёС€Рё РЅРµС‚
     if(findIterator1 == keyCodesAndStringsMap.end())
     {
         std::cerr << "\n\nFailed to add key, key not exist." << std::endl;
 
-        //Возвращаем false, так как не удалось найти такую клавишу
+        //Р’РѕР·РІСЂР°С‰Р°РµРј false, С‚Р°Рє РєР°Рє РЅРµ СѓРґР°Р»РѕСЃСЊ РЅР°Р№С‚Рё С‚Р°РєСѓСЋ РєР»Р°РІРёС€Сѓ
         return false;
     }
 
 
-    //Клавиша inputKeyCode существует
-    //Узнаём есть ли уже такая клавиша в KeyHandler
+    //РљР»Р°РІРёС€Р° inputKeyCode СЃСѓС‰РµСЃС‚РІСѓРµС‚
+    //РЈР·РЅР°С‘Рј РµСЃС‚СЊ Р»Рё СѓР¶Рµ С‚Р°РєР°СЏ РєР»Р°РІРёС€Р° РІ KeyHandler
     std::unordered_set<int>::iterator findIterator2 = _keyCodeSet.find(inputKeyCode);
     
-    //Такая клавиша уже есть в KeyHandler
+    //РўР°РєР°СЏ РєР»Р°РІРёС€Р° СѓР¶Рµ РµСЃС‚СЊ РІ KeyHandler
     if(findIterator2 != _keyCodeSet.end())
     {
-        //Узнаём имя клавиши
+        //РЈР·РЅР°С‘Рј РёРјСЏ РєР»Р°РІРёС€Рё
         std::string keyName = findIterator1->second;
 
         std::cerr << "\n\nFailed to add key, observer already contains such a key. Key: " << keyName << "." << std::endl;
 
-        //Возвращаем false, так как такая клавиша в KeyHandler уже есть
+        //Р’РѕР·РІСЂР°С‰Р°РµРј false, С‚Р°Рє РєР°Рє С‚Р°РєР°СЏ РєР»Р°РІРёС€Р° РІ KeyHandler СѓР¶Рµ РµСЃС‚СЊ
         return false;
     }
 
 
-    //Клавиша inputKeyCode существует
-    //В KeyHandler нет клавиши inputKeyCode
-    //Получаем ссылку на клавишу, на которую хотим подписаться
+    //РљР»Р°РІРёС€Р° inputKeyCode СЃСѓС‰РµСЃС‚РІСѓРµС‚
+    //Р’ KeyHandler РЅРµС‚ РєР»Р°РІРёС€Рё inputKeyCode
+    //РџРѕР»СѓС‡Р°РµРј СЃСЃС‹Р»РєСѓ РЅР° РєР»Р°РІРёС€Сѓ, РЅР° РєРѕС‚РѕСЂСѓСЋ С…РѕС‚РёРј РїРѕРґРїРёСЃР°С‚СЊСЃСЏ
     Key& refKey = (*_keyVector)[inputKeyCode];
 
-    //Добавляем подписчика у клавиши
+    //Р”РѕР±Р°РІР»СЏРµРј РїРѕРґРїРёСЃС‡РёРєР° Сѓ РєР»Р°РІРёС€Рё
     if(refKey.addSubscribe(this))
     {
-        //Добавляем клавишу во множество
+        //Р”РѕР±Р°РІР»СЏРµРј РєР»Р°РІРёС€Сѓ РІРѕ РјРЅРѕР¶РµСЃС‚РІРѕ
         _keyCodeSet.insert(inputKeyCode).second;
 
-        //Возвращаем true, так как удачно добавили клавишу
+        //Р’РѕР·РІСЂР°С‰Р°РµРј true, С‚Р°Рє РєР°Рє СѓРґР°С‡РЅРѕ РґРѕР±Р°РІРёР»Рё РєР»Р°РІРёС€Сѓ
         return true;
     }
     else
     {
         std::cerr << "\n\nFailed to add key." << std::endl;
 
-        //Возвращаем false, так как не удалось добавить клавишу
+        //Р’РѕР·РІСЂР°С‰Р°РµРј false, С‚Р°Рє РєР°Рє РЅРµ СѓРґР°Р»РѕСЃСЊ РґРѕР±Р°РІРёС‚СЊ РєР»Р°РІРёС€Сѓ
         return false;
     }
 }
 
 bool KeyHandler::removeKey(int inputKeyCode)
 {
-    //Ищем клавишу с inputKeyCode
+    //РС‰РµРј РєР»Р°РІРёС€Сѓ СЃ inputKeyCode
     std::map<int, std::string>::iterator findIterator1 = keyCodesAndStringsMap.find(inputKeyCode);
 
-    //Если такой клавиши нет
+    //Р•СЃР»Рё С‚Р°РєРѕР№ РєР»Р°РІРёС€Рё РЅРµС‚
     if(findIterator1 == keyCodesAndStringsMap.end())
     {
         std::cerr << "\n\nFailed to remove key, key not exist." << std::endl;
 
-        //Возвращаем false, так как не удалось найти такую клавишу
+        //Р’РѕР·РІСЂР°С‰Р°РµРј false, С‚Р°Рє РєР°Рє РЅРµ СѓРґР°Р»РѕСЃСЊ РЅР°Р№С‚Рё С‚Р°РєСѓСЋ РєР»Р°РІРёС€Сѓ
         return false;
     }
 
 
-    //Клавиша inputKeyCode существует
-    //Узнаём есть ли уже такая клавиша в KeyHandler
+    //РљР»Р°РІРёС€Р° inputKeyCode СЃСѓС‰РµСЃС‚РІСѓРµС‚
+    //РЈР·РЅР°С‘Рј РµСЃС‚СЊ Р»Рё СѓР¶Рµ С‚Р°РєР°СЏ РєР»Р°РІРёС€Р° РІ KeyHandler
     std::unordered_set<int>::iterator findIterator2 = _keyCodeSet.find(inputKeyCode);
     
-    //Такая клавиша уже есть в KeyHandler
+    //РўР°РєР°СЏ РєР»Р°РІРёС€Р° СѓР¶Рµ РµСЃС‚СЊ РІ KeyHandler
     if(findIterator2 != _keyCodeSet.end())
     {
-        //Узнаём имя клавиши
+        //РЈР·РЅР°С‘Рј РёРјСЏ РєР»Р°РІРёС€Рё
         std::string keyName = findIterator1->second;
 
         std::cerr << "\n\nFailed to remove key, observer not contains this key. Key: " << keyName << "." << std::endl;
 
-        //Возвращаем false, так как такой клавиши в KeyHandler нет
+        //Р’РѕР·РІСЂР°С‰Р°РµРј false, С‚Р°Рє РєР°Рє С‚Р°РєРѕР№ РєР»Р°РІРёС€Рё РІ KeyHandler РЅРµС‚
         return false;
     }
 
 
-    //Клавиша inputKeyCode существует
-    //В KeyHandler есть клавиша inputKeyCode
-    //Получаем ссылку на клавишу, от которой хотим отписаться
+    //РљР»Р°РІРёС€Р° inputKeyCode СЃСѓС‰РµСЃС‚РІСѓРµС‚
+    //Р’ KeyHandler РµСЃС‚СЊ РєР»Р°РІРёС€Р° inputKeyCode
+    //РџРѕР»СѓС‡Р°РµРј СЃСЃС‹Р»РєСѓ РЅР° РєР»Р°РІРёС€Сѓ, РѕС‚ РєРѕС‚РѕСЂРѕР№ С…РѕС‚РёРј РѕС‚РїРёСЃР°С‚СЊСЃСЏ
     Key& refKey = (*_keyVector)[inputKeyCode];
 
-    //Удаляем подписчика у клавиши
+    //РЈРґР°Р»СЏРµРј РїРѕРґРїРёСЃС‡РёРєР° Сѓ РєР»Р°РІРёС€Рё
     if(refKey.deleteSubscribe(this))
     {
-        //Удаляем код клавиши из множества
+        //РЈРґР°Р»СЏРµРј РєРѕРґ РєР»Р°РІРёС€Рё РёР· РјРЅРѕР¶РµСЃС‚РІР°
         _keyCodeSet.erase(findIterator2);
     }
     else
@@ -554,7 +554,7 @@ bool KeyHandler::removeKey(int inputKeyCode)
         std::cerr << "\n\nFailed to remove key." << std::endl;
     }
 
-    //Возвращаем true, так как удачно удалили клавишу
+    //Р’РѕР·РІСЂР°С‰Р°РµРј true, С‚Р°Рє РєР°Рє СѓРґР°С‡РЅРѕ СѓРґР°Р»РёР»Рё РєР»Р°РІРёС€Сѓ
     return true;
 }
 
@@ -667,20 +667,20 @@ int main(int argc, char* argv[])
     std::list<KeyHandler> keyHandlerList;
 
 
-    // // Загрузка YAML файла
+    // // Р—Р°РіСЂСѓР·РєР° YAML С„Р°Р№Р»Р°
     // const char* filename = "CaptureKeyUtilityConfig.yaml";
 
-    // //Открываем файл
+    // //РћС‚РєСЂС‹РІР°РµРј С„Р°Р№Р»
     // FILE* file = fopen(filename, "r");
     // if(!file)
     // {
     //     std::cerr << "Failed to open file " << filename << std::endl;
-    //     //Произошла ошибка при чтении события
+    //     //РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё С‡С‚РµРЅРёРё СЃРѕР±С‹С‚РёСЏ
     //     std::cerr << "Error: " << strerror(errno) << std::endl;
     //     return 1;
     // }
 
-    // //Читаем содержимое файла в строку
+    // //Р§РёС‚Р°РµРј СЃРѕРґРµСЂР¶РёРјРѕРµ С„Р°Р№Р»Р° РІ СЃС‚СЂРѕРєСѓ
     // fseek(file, 0, SEEK_END);
     // long fileSize = ftell(file);
     // fseek(file, 0, SEEK_SET);
@@ -692,24 +692,24 @@ int main(int argc, char* argv[])
     // YAML::Node config = YAML::Load(fileContent);
 
 
-    // Получаем путь к исполняемому файлу
+    // РџРѕР»СѓС‡Р°РµРј РїСѓС‚СЊ Рє РёСЃРїРѕР»РЅСЏРµРјРѕРјСѓ С„Р°Р№Р»Сѓ
     std::filesystem::path executablePath = std::filesystem::absolute(argv[0]);
 
-    // Получаем директорию исполняемого файла
+    // РџРѕР»СѓС‡Р°РµРј РґРёСЂРµРєС‚РѕСЂРёСЋ РёСЃРїРѕР»РЅСЏРµРјРѕРіРѕ С„Р°Р№Р»Р°
     std::filesystem::path executableDir = executablePath.parent_path();
 
-    //Загружаем файл
+    //Р—Р°РіСЂСѓР¶Р°РµРј С„Р°Р№Р»
     YAML::Node config = YAML::LoadFile(std::string(executableDir) + "/" + "CaptureKeyUtilityConfig.yaml");
 
 
-    //Проверка наличия узла keyboard_shortcuts
+    //РџСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ СѓР·Р»Р° keyboard_shortcuts
     YAML::Node keyboard_shortcutsYAML = config["keyboard_shortcuts"];
 
     if(keyboard_shortcutsYAML)
     {
         for(const auto& shortcut : keyboard_shortcutsYAML)
         {
-            //Узнаём существует ли поле duration
+            //РЈР·РЅР°С‘Рј СЃСѓС‰РµСЃС‚РІСѓРµС‚ Р»Рё РїРѕР»Рµ duration
             YAML::Node durationYAML = shortcut["duration"];
             if(!durationYAML)
             {  
@@ -717,18 +717,18 @@ int main(int argc, char* argv[])
                 continue;
             }
 
-            //Проверяем тип
+            //РџСЂРѕРІРµСЂСЏРµРј С‚РёРї
             if(durationYAML.Type() != YAML::NodeType::Scalar)
             {
                 std::cerr << "Not found duration in the YAML file.\n\n";
                 continue;
             }
             
-            //Получаем значение из поля keyboard_shortcuts
+            //РџРѕР»СѓС‡Р°РµРј Р·РЅР°С‡РµРЅРёРµ РёР· РїРѕР»СЏ keyboard_shortcuts
             int duration = durationYAML.as<int>();
             
 
-            //Узнаём существует ли поле action_string
+            //РЈР·РЅР°С‘Рј СЃСѓС‰РµСЃС‚РІСѓРµС‚ Р»Рё РїРѕР»Рµ action_string
             YAML::Node action_stringYAML = shortcut["action_string"];
 
             if(!action_stringYAML)
@@ -737,18 +737,18 @@ int main(int argc, char* argv[])
                 continue;
             }
 
-            //Проверяем тип
+            //РџСЂРѕРІРµСЂСЏРµРј С‚РёРї
             if(action_stringYAML.Type() != YAML::NodeType::Scalar)
             {
                 std::cerr << "Not found action_string in the YAML file.\n\n";
                 continue;
             }
 
-            //Получаем значение из поля action_string
+            //РџРѕР»СѓС‡Р°РµРј Р·РЅР°С‡РµРЅРёРµ РёР· РїРѕР»СЏ action_string
             std::string action_string = action_stringYAML.as<std::string>();
 
 
-            //Узнаём существует ли поле keys
+            //РЈР·РЅР°С‘Рј СЃСѓС‰РµСЃС‚РІСѓРµС‚ Р»Рё РїРѕР»Рµ keys
             YAML::Node keysYAML = shortcut["keys"];
 
             if(!keysYAML)
@@ -757,21 +757,21 @@ int main(int argc, char* argv[])
                 continue;
             }
 
-            //Получаем значение из поля keys
+            //РџРѕР»СѓС‡Р°РµРј Р·РЅР°С‡РµРЅРёРµ РёР· РїРѕР»СЏ keys
             std::vector<std::string> keysStrings;
 
-            //Узнаём является ли поле keys последовательностью
+            //РЈР·РЅР°С‘Рј СЏРІР»СЏРµС‚СЃСЏ Р»Рё РїРѕР»Рµ keys РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊСЋ
             switch(keysYAML.Type())
             {
                 case YAML::NodeType::Sequence:
                 {
-                    //Получаем значения из поля keys
+                    //РџРѕР»СѓС‡Р°РµРј Р·РЅР°С‡РµРЅРёСЏ РёР· РїРѕР»СЏ keys
                     keysStrings = keysYAML.as<std::vector<std::string>>();
                     break;
                 }
                 case YAML::NodeType::Scalar:
                 {
-                    //Получаем значение из поля keys
+                    //РџРѕР»СѓС‡Р°РµРј Р·РЅР°С‡РµРЅРёРµ РёР· РїРѕР»СЏ keys
                     std::string keyString = keysYAML.as<std::string>();
                     keysStrings.push_back(keyString);
                     break;
@@ -783,7 +783,7 @@ int main(int argc, char* argv[])
             }
 
 
-            //Проверяем не пустое ли это поле
+            //РџСЂРѕРІРµСЂСЏРµРј РЅРµ РїСѓСЃС‚РѕРµ Р»Рё СЌС‚Рѕ РїРѕР»Рµ
             if(keysStrings.empty())
             {
                 std::cerr << "Keys is empty.\n\n";
@@ -795,26 +795,26 @@ int main(int argc, char* argv[])
             std::vector<int> indexErrorVector;
 
 
-            //Вывод данных
+            //Р’С‹РІРѕРґ РґР°РЅРЅС‹С…
             std::cout << "Duration: " << duration << "\n";
             std::cout << "Action String: " << action_string << "\n";
             std::cout << "Keys: ";
             
             
-            //Преобразуем строки в коды
+            //РџСЂРµРѕР±СЂР°Р·СѓРµРј СЃС‚СЂРѕРєРё РІ РєРѕРґС‹
             for(int i = 0; i < keysStrings.size(); i++)
             {
-                //Ищем соответствующий строке код
+                //РС‰РµРј СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёР№ СЃС‚СЂРѕРєРµ РєРѕРґ
                 std::map<std::string, int>::iterator findIterator = stringsAndKeyCodesMap.find(keysStrings[i]);
 
-                //Если не нашли, то добавляем в вектор ошибок индекс кнопки
+                //Р•СЃР»Рё РЅРµ РЅР°С€Р»Рё, С‚Рѕ РґРѕР±Р°РІР»СЏРµРј РІ РІРµРєС‚РѕСЂ РѕС€РёР±РѕРє РёРЅРґРµРєСЃ РєРЅРѕРїРєРё
                 if(findIterator == stringsAndKeyCodesMap.end())
                 {
                     indexErrorVector.push_back(i);
                 }
                 else
                 {
-                    //Нашли, выводим на экран
+                    //РќР°С€Р»Рё, РІС‹РІРѕРґРёРј РЅР° СЌРєСЂР°РЅ
                     if(i > 0)
                     {
                         std::cout << ", ";
@@ -822,12 +822,12 @@ int main(int argc, char* argv[])
 
                     std::cout << keysStrings[i];
 
-                    //Добавляем код клавиши в векторо кодов клавиш
+                    //Р”РѕР±Р°РІР»СЏРµРј РєРѕРґ РєР»Р°РІРёС€Рё РІ РІРµРєС‚РѕСЂРѕ РєРѕРґРѕРІ РєР»Р°РІРёС€
                     keysCodes.push_back(findIterator->second);
                 }
             }
             
-            //Если ниодного кода клавиши не было добавлено
+            //Р•СЃР»Рё РЅРёРѕРґРЅРѕРіРѕ РєРѕРґР° РєР»Р°РІРёС€Рё РЅРµ Р±С‹Р»Рѕ РґРѕР±Р°РІР»РµРЅРѕ
             if(keysCodes.empty())
             {
                 std::cerr << "Keys is empty.\n\n";
@@ -841,13 +841,13 @@ int main(int argc, char* argv[])
 
                 for(const auto& key : keysCodes)
                 {
-                    //Добавляем клавишу
+                    //Р”РѕР±Р°РІР»СЏРµРј РєР»Р°РІРёС€Сѓ
                     bool res = refKeyHandler.addKey(key);
 
-                    // //Если не вышло добавить клавишу
+                    // //Р•СЃР»Рё РЅРµ РІС‹С€Р»Рѕ РґРѕР±Р°РІРёС‚СЊ РєР»Р°РІРёС€Сѓ
                     // if(!res)
                     // {
-                    //     //Удаляем ранее добавленные клавиши
+                    //     //РЈРґР°Р»СЏРµРј СЂР°РЅРµРµ РґРѕР±Р°РІР»РµРЅРЅС‹Рµ РєР»Р°РІРёС€Рё
                     //     for(const auto& key : keysCodes)
                     //     {
                     //         refKeyHandler.removeKey(key);
@@ -862,7 +862,7 @@ int main(int argc, char* argv[])
 
             for(const auto& index : indexErrorVector)
             {
-                //Если не нашли, то пропускаем
+                //Р•СЃР»Рё РЅРµ РЅР°С€Р»Рё, С‚Рѕ РїСЂРѕРїСѓСЃРєР°РµРј
                 std::cerr << "\n\nFailed to add key, key not exist, key: " << keysStrings[index] << "\n\n";
             }
 
@@ -919,7 +919,7 @@ int main(int argc, char* argv[])
             }
 
 
-            // Проверяем типы событий
+            // РџСЂРѕРІРµСЂСЏРµРј С‚РёРїС‹ СЃРѕР±С‹С‚РёР№
             if(libevdev_has_event_type(dev, EV_ABS))
             {
                 close(fd);
@@ -958,13 +958,13 @@ int main(int argc, char* argv[])
                 {
                     switch(ev.value)
                     {
-                        //Клавиша была отжата
+                        //РљР»Р°РІРёС€Р° Р±С‹Р»Р° РѕС‚Р¶Р°С‚Р°
                         case 0:
                         {
                             keyVector[ev.code].keyWasReleased();
                             break;
                         }
-                        //Клавиша была нажата
+                        //РљР»Р°РІРёС€Р° Р±С‹Р»Р° РЅР°Р¶Р°С‚Р°
                         case 1:
                         {
                             keyVector[ev.code].keyWasPressed();
@@ -981,7 +981,7 @@ int main(int argc, char* argv[])
             }
             else
             {  
-                //Произошла ошибка при чтении события
+                //РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё С‡С‚РµРЅРёРё СЃРѕР±С‹С‚РёСЏ
                 std::cerr << "Failed read event, error: " << strerror(-rc) << std::endl;
 
                 if(-rc == 19)
