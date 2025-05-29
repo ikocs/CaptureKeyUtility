@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.28)
+project(CaptureKeyUtility LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_BUILD_TYPE Release)
 
@@ -7,8 +9,6 @@ set(LIBEVDEV_LIBRARY ${PATH_TO_SYSROOT}/usr/lib/libevdev.so)
 
 set(YAML_INCLUDE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/yaml-cpp)
 set(YAML_LIBRARY ${CMAKE_CURRENT_SOURCE_DIR}/libyaml-cpp.a)
-
-project(CaptureKeyUtility LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
