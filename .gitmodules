@@ -1,0 +1,3 @@
+[submodule "CaptureKeyUtility/yaml-cpp"]
+	path = CaptureKeyUtility/yaml-cpp
+	url = https://github.com/jbeder/yaml-cpp.git
