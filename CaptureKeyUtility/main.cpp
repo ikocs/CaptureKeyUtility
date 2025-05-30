@@ -1,17 +1,22 @@
-#include <iostream>
 #include <libevdev/libevdev.h>
 #include <fcntl.h>
 #include <unistd.h>
+
+#include <iostream>
 #include <cstring>
 #include <string>
 #include <chrono>
 #include <cmath>
-#include "yaml-cpp/yaml.h"
 #include <fstream>
 #include <unordered_set>
+#include <map>
+#include <list>
+#include <vector>
+#include <array>
 #include <unordered_map>
 #include <filesystem>
 
+#include <yaml-cpp/yaml.h>
 
 //Карта имён клавиш и их кодов в библиотеке libevdev
 std::map<std::string, int> stringsAndKeyCodesMap{   {"Esc", KEY_ESC},
