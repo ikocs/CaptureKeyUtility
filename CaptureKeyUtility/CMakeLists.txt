@@ -18,7 +18,7 @@ else()
     message(FATAL_ERROR "libevdev not found. Please install libevdev development files.")
 endif()
 
-
+message(STATUS "env PROJECT_SOURCE_DIR: ${PROJECT_SOURCE_DIR}")
 include_directories(${PROJECT_SOURCE_DIR}/yaml-cpp/include)
 add_subdirectory(${PROJECT_SOURCE_DIR}/yaml-cpp)
 
